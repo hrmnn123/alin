@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Pagerank &#8212; My sample book</title>
   
   
   
@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'APLIKASI KAL';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AplikasiKAL';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -254,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAPLIKASI KAL.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAplikasiKAL.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -284,7 +284,7 @@
       
       
       
-      <li><a href="_sources/APLIKASI KAL.ipynb" target="_blank"
+      <li><a href="_sources/AplikasiKAL.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Pagerank</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,7 +377,10 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pagerank</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-pagerank">Algoritma Pagerank</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komputasi-menghitung-page-rank">komputasi menghitung page rank</a></li>
 </ul>
 
             </nav>
@@ -390,9 +393,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>#PAGE RANK
-page rank adalah algoritma yang di gunakan oleh google penelusuran untuk  menentukan peringkat halaman web dalam hasil mesin pencarian.</p>
-<p>PageRank bekerja dengan menghitung jumlah dan kualitas tautan ke suatu halaman untuk menentukan perkiraan kasar tentang seberapa penting situs web tersebut. Asumsi yang mendasarinya adalah bahwa situs web yang lebih penting cenderung menerima lebih banyak tautan dari situs web lain</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pagerank">
+<h1>Pagerank<a class="headerlink" href="#pagerank" title="Link to this heading">#</a></h1>
+<p>##Pengertian Pagerank</p>
+<p>Pagerank adalah algoritma yang digunakan Google untuk menganalisis distribusi link dan konektivitasnya pada setiap situs web.</p>
+<p>Pagerank algorithm memberikan nilai mulai dari 0 hingga 10 untuk menunjukkan seberapa berkualitasnya website tersebut. sederhananya, pagerank merupakan sistem pemeringkatan halaman website . semakin tinggi nilainya, maka bisa dikatakan website tersebut semakin kredibel.</p>
+<p>untuk cara kerjanya yaitu  dengan menghitung banyaknya jumlah dan kualitas link ke halaman situs untuk memperkirakan seberapa pentingnya situs tersebut.
+Semakin banyak link yang mengarah ke sebuah halaman, semakin tinggi nilai PageRank-nya. Namun, bukan hanya jumlah tautan yang diperhitungkan, PageRank juga melihat kualitas tautan tersebut. Jika tautan berasal dari halaman dengan PageRank tinggi, nilai yang diberikan juga lebih tinggi. Begitu pun sebaliknya.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="algoritma-pagerank">
+<h1>Algoritma Pagerank<a class="headerlink" href="#algoritma-pagerank" title="Link to this heading">#</a></h1>
 <p>Dari pengertian diatas masih kurang bila belum ada contoh algortimanya.
 ##Berikut ini contoh algoritma dari pagerank</p>
 <ul class="simple">
@@ -411,116 +421,9 @@ page rank adalah algoritma yang di gunakan oleh google penelusuran untuk  menent
 <li><p>jika pakai (sum square error) maka cukup sampai sebelum pengakaran  dan berhenti dan mengecek apakah lebih besar dari batasan atau tidak</p></li>
 <li><p>jika pakai (root square error maka lakukan sampai pengakaran)</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">V0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">([[</span><span class="mf">0.25</span><span class="p">],[</span><span class="mf">0.25</span><span class="p">],[</span><span class="mf">0.25</span><span class="p">],[</span><span class="mf">0.25</span><span class="p">]])</span>
-<span class="n">V1</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
-<span class="n">V2</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
-<span class="n">V3</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V3</span><span class="p">)</span>
-<span class="n">V4</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V4</span><span class="p">)</span>
-<span class="n">V5</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V5</span><span class="p">)</span>
-<span class="n">V6</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V6</span><span class="p">)</span>
-<span class="n">V7</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V6</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V7</span><span class="p">)</span>
-<span class="n">V8</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V7</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V8</span><span class="p">)</span>
-<span class="n">V0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">([[</span><span class="mf">0.3</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">],[</span><span class="mf">0.3</span><span class="p">],[</span><span class="mf">0.2</span><span class="p">]])</span>
-<span class="n">V1</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V1</span><span class="p">)</span>
-<span class="n">V2</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
-<span class="n">V3</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V3</span><span class="p">)</span>
-<span class="n">V4</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V4</span><span class="p">)</span>
-<span class="n">V5</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V5</span><span class="p">)</span>
-<span class="n">V6</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V6</span><span class="p">)</span>
-<span class="n">V7</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V6</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V7</span><span class="p">)</span>
-<span class="n">V8</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@V7</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">V8</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.375     ]
- [0.08333333]
- [0.33333333]
- [0.20833333]]
-[[0.4375    ]
- [0.125     ]
- [0.27083333]
- [0.16666667]]
-[[0.35416667]
- [0.14583333]
- [0.29166667]
- [0.20833333]]
-[[0.39583333]
- [0.11805556]
- [0.29513889]
- [0.19097222]]
-[[0.390625  ]
- [0.13194444]
- [0.28645833]
- [0.19097222]]
-[[0.38194444]
- [0.13020833]
- [0.29166667]
- [0.19618056]]
-[[0.38975694]
- [0.12731481]
- [0.29050926]
- [0.19241898]]
-[[0.38671875]
- [0.12991898]
- [0.28978588]
- [0.19357639]]
-[[0.4]
- [0.1]
- [0.3]
- [0.2]]
-[[0.4       ]
- [0.13333333]
- [0.28333333]
- [0.18333333]]
-[[0.375     ]
- [0.13333333]
- [0.29166667]
- [0.2       ]]
-[[0.39166667]
- [0.125     ]
- [0.29166667]
- [0.19166667]]
-[[0.3875    ]
- [0.13055556]
- [0.28888889]
- [0.19305556]]
-[[0.38541667]
- [0.12916667]
- [0.29097222]
- [0.19444444]]
-[[0.38819444]
- [0.12847222]
- [0.29027778]
- [0.19305556]]
-[[0.38680556]
- [0.12939815]
- [0.29016204]
- [0.19363426]]
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="komputasi-menghitung-page-rank">
+<h1>komputasi menghitung page rank<a class="headerlink" href="#komputasi-menghitung-page-rank" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -570,6 +473,7 @@ page rank adalah algoritma yang di gunakan oleh google penelusuran untuk  menent
 </div>
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -616,7 +520,10 @@ page rank adalah algoritma yang di gunakan oleh google penelusuran untuk  menent
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pagerank</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-pagerank">Algoritma Pagerank</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komputasi-menghitung-page-rank">komputasi menghitung page rank</a></li>
 </ul>
 
   </nav></div>
