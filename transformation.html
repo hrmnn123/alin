@@ -399,124 +399,68 @@ document.write(`
 <li><p>Kelinieran: Transformasi linier mempertahankan sifat-sifat linier, seperti sifat distributif dan sifat homogen.</p></li>
 <li><p>Invertibilitas: Jika transformasi linier T bersifat bijektif, maka T memiliki invers yang juga merupakan transformasi linier.</p></li>
 </ol>
-<p>##Cara mendapatkan fungsi transformasi matriks</p>
-<p>Untuk mendapatkan fungsi transformasi matriks, kita perlu memahami bahwa setiap operasi transformasi geometri dalam ruang dua dimensi atau tiga dimensi bisa direpresentasikan sebagai perkalian matriks dengan vektor-vektor yang mewakili titik-titik dalam ruang tersebut.</p>
-<p>Berikut adalah beberapa jenis transformasi yang umum dan matriks yang mewakilinya:</p>
-<ol class="arabic">
-<li><p><strong>Translasi</strong> (geseran):
-Dalam dua dimensi, translasi titik (x, y) ke (x+t_x, y+t_y) tidak bisa direpresentasikan dalam bentuk perkalian matriks biasa karena membutuhkan afine transformation. Namun, kita bisa menggunakan homogeneous coordinates untuk mencapai ini:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span> <span class="mi">0</span> <span class="n">t_x</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">t_x</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="n">t_y</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span> <span class="o">+</span> <span class="n">t_y</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">0</span> <span class="mi">0</span>  <span class="mi">1</span> <span class="p">]</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="p">[</span>   <span class="mi">1</span>    <span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Rotasi</strong>:
-Rotasi titik-titik di sekitar asal dengan sudut θ:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)]</span>
-<span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span>  <span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">)]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">)]</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Skala</strong> (perbesaran/pengecilan):
-Skala titik-titik dengan faktor s_x dan s_y sepanjang sumbu x dan y:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">s_x</span>  <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">s_x</span><span class="o">*</span><span class="n">x</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">0</span>   <span class="n">s_y</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">s_y</span><span class="o">*</span><span class="n">y</span><span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Refleksi</strong> (pencerminan):
-Refleksi terhadap sumbu x, y, atau garis y = x:</p>
-<ul>
-<li><p>Terhadap sumbu x:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span>  <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">x</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">0</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">y</span><span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p>Terhadap sumbu y:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">-</span><span class="mi">1</span>  <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="o">-</span><span class="n">x</span><span class="p">]</span>
-<span class="p">[</span> <span class="mi">0</span>  <span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">y</span><span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p>Terhadap garis y = x:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">0</span>  <span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">y</span><span class="p">]</span>
-<span class="p">[</span> <span class="mi">1</span>  <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-<li><p><strong>Shear</strong> (regangan):
-Shear paralel dengan sumbu x atau y:</p>
-<ul>
-<li><p>Shear sepanjang sumbu x:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span>  <span class="n">k</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">y</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">0</span>  <span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>    <span class="n">y</span>    <span class="p">]</span>
-</pre></div>
-</div>
-</li>
-<li><p>Shear sepanjang sumbu y:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span>  <span class="mi">0</span><span class="p">]</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>   <span class="p">[</span>    <span class="n">x</span>    <span class="p">]</span>
-<span class="p">[</span><span class="n">k</span>  <span class="mi">1</span><span class="p">]</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">y</span><span class="p">]</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</li>
-</ol>
-<p>Untuk mendapatkan fungsi transformasi matriks yang spesifik, kita perlu menentukan parameter-parameter yang relevan (misalnya, titik pusat rotasi, sudut rotasi, faktor skala, dll.) dan menggunakan matriks yang sesuai untuk merepresentasikan transformasi tersebut.</p>
-<p>Jika kita memiliki kasus transformasi yang lebih kompleks atau gabungan dari beberapa transformasi, kita bisa menggabungkan matriks-matriks transformasi tersebut dengan melakukan perkalian matriks dalam urutan yang benar (perhatikan bahwa urutan perkalian matriks bisa memengaruhi hasil akhir).</p>
-<p>Sebagai contoh, jika kita ingin menerapkan rotasi diikuti oleh skala, kita bisa menggunakan perkalian matriks:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M_hasil</span> <span class="o">=</span> <span class="n">M_skala</span> <span class="o">*</span> <span class="n">M_rotasi</span>
-</pre></div>
-</div>
-<p>Kemudian, untuk menerapkan transformasi ini pada titik (vektor kolom), kita bisa melakukan perkalian matriks dengan vektor tersebut:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vektor_hasil</span> <span class="o">=</span> <span class="n">M_hasil</span> <span class="o">*</span> <span class="n">vektor</span>
-</pre></div>
-</div>
-<p>perlu diingat bahwa dalam kasus transformasi yang melibatkan translasi, kita harus menggunakan homogeneous coordinates untuk memperoleh representasi matriks yang tepat.</p>
-<p>Berikut adalah contoh kode Python yang melakukan rotasi 2D menggunakan matriks rotasi:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">make_2d_rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">]])</span>
+<span class="c1"># Fungsi untuk membuat matriks rotasi</span>
+<span class="k">def</span> <span class="nf">rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>  <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]</span>
+    <span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">rotate_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
-    <span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">make_2d_rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rotation_matrix</span><span class="p">,</span> <span class="n">points</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># Matriks refleksi sumbu y terhadap sumbu x</span>
+<span class="n">reflection_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
 
+<span class="c1"># Sudut rotasi (dalam radian)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># 45 derajat</span>
 
-<span class="k">def</span> <span class="nf">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">rotated_points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Points&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">rotated_points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rotated_points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rotated_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rotated Points&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Matriks rotasi</span>
+<span class="n">rot_matrix</span> <span class="o">=</span> <span class="n">rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-    <span class="n">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="c1"># Titik awal</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
 
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="c1"># Mengalikan setiap titik dengan matriks refleksi untuk mendapatkan titik yang direfleksikan</span>
+<span class="n">reflected_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_matrix</span><span class="p">)</span>
 
-    <span class="n">rotated_points</span> <span class="o">=</span> <span class="n">rotate_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+<span class="c1"># Mengalikan setiap titik dengan matriks rotasi untuk mendapatkan titik yang dirotasi</span>
+<span class="n">rotated_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">rot_matrix</span><span class="p">)</span>
 
-    <span class="n">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">rotated_points</span><span class="p">)</span>
+<span class="c1"># Plot titik-titik awal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Titik Awal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot titik-titik yang direfleksikan</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reflected_points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">reflected_points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Refleksi Sumbu y terhadap Sumbu x&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot titik-titik yang dirotasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rotated_points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">rotated_points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rotasi 45 derajat&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Refleksi dan Rotasi Titik-Titik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/733d925e19091c5e8df98a7bc4ec98558c098d1671800af708329252cc805d1b.png" src="_images/733d925e19091c5e8df98a7bc4ec98558c098d1671800af708329252cc805d1b.png" />
-<img alt="_images/681e014321d6293e58e1332536822d323d266f9b3959f8ce650954caa5136347.png" src="_images/681e014321d6293e58e1332536822d323d266f9b3959f8ce650954caa5136347.png" />
+<img alt="_images/1c1852de9cc6e604615513fc926f80c96b49eb14c1ad747142c04b372d49b7b3.png" src="_images/1c1852de9cc6e604615513fc926f80c96b49eb14c1ad747142c04b372d49b7b3.png" />
 </div>
 </div>
 <p>##refleksi</p>
@@ -529,97 +473,99 @@ Shear paralel dengan sumbu x atau y:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">make_reflection_x_matrix</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="c1"># Matriks refleksi sumbu y terhadap sumbu x</span>
+<span class="n">reflection_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">make_reflection_y_matrix</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="c1"># Titik awal</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">reflect_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_matrix</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">reflection_matrix</span><span class="p">,</span> <span class="n">points</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># Mengalikan setiap titik dengan matriks refleksi untuk mendapatkan titik yang direfleksikan</span>
+<span class="n">reflected_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_matrix</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflected_points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Points&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">reflected_points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reflected_points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reflected_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Reflected Points&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Plot titik-titik awal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Titik Awal&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-    <span class="n">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="c1"># Plot titik-titik yang direfleksikan</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reflected_points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">reflected_points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Refleksi SumBu y terhadap SumBu x&#39;</span><span class="p">)</span>
 
-    <span class="n">reflection_matrix_x</span> <span class="o">=</span> <span class="n">make_reflection_x_matrix</span><span class="p">()</span>
-    <span class="n">reflected_points_x</span> <span class="o">=</span> <span class="n">reflect_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_matrix_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 
-    <span class="n">plot_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflected_points_x</span><span class="p">)</span>
-
-    <span class="n">reflection_matrix_y</span> <span class="o">=</span> <span class="n">make_reflection_y_matrix</span><span class="p">()</span>
-    <span class="n">reflected_points_y</span> <span class="o">=</span> <span class="n">reflect_points</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_matrix_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Refleksi SumBu y terhadap SumBu x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/733d925e19091c5e8df98a7bc4ec98558c098d1671800af708329252cc805d1b.png" src="_images/733d925e19091c5e8df98a7bc4ec98558c098d1671800af708329252cc805d1b.png" />
-<img alt="_images/c586e791988ca4d4f473a151c5407308541b800d8823156e69593e34188fcad4.png" src="_images/c586e791988ca4d4f473a151c5407308541b800d8823156e69593e34188fcad4.png" />
+<img alt="_images/2b107278f978d698f1b033d4ccf779992b321ce9007400cf672757c11099a6ba.png" src="_images/2b107278f978d698f1b033d4ccf779992b321ce9007400cf672757c11099a6ba.png" />
 </div>
 </div>
-<p>##Komposisi Transformasi Linier</p>
-<p>Komposisi transformasi linier adalah operasi di mana dua atau lebih transformasi linier diterapkan secara berurutan.</p>
-<p>Dalam konteks matriks, komposisi transformasi linier diimplementasikan sebagai perkalian matriks.</p>
-<p>Matriks hasil dari perkalian tersebut merepresentasikan transformasi gabungan dari transformasi-transformasi yang dikomposisikan.</p>
-<p>Berikut adalah contoh kode Python yang menggunakan library NumPy untuk melakukan komposisi transformasi linier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">make_2d_rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">],</span> <span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">]])</span>
+<span class="c1"># Matriks refleksi sumbu y terhadap sumbu x</span>
+<span class="n">reflection_yx_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">make_scaling_matrix</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span> <span class="n">sy</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sx</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sy</span><span class="p">]])</span>
+<span class="c1"># Matriks refleksi sumbu x terhadap sumbu y</span>
+<span class="n">reflection_xy_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">compose_transformations</span><span class="p">(</span><span class="n">transformations</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">transformation</span> <span class="ow">in</span> <span class="n">transformations</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">transformation</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
+<span class="c1"># Titik awal</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">plot_points_and_lines</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">lines</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">points</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">lines</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">line</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Mengalikan setiap titik dengan matriks refleksi untuk mendapatkan titik yang direfleksikan</span>
+<span class="n">reflected_points_yx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_yx_matrix</span><span class="p">)</span>
+<span class="n">reflected_points_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">reflection_xy_matrix</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-    <span class="n">plot_points_and_lines</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="c1"># Plot titik-titik awal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Titik Awal&#39;</span><span class="p">)</span>
 
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>
-    <span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">make_2d_rotation_matrix</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
-    <span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">make_scaling_matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Plot titik-titik yang direfleksikan terhadap sumbu y ke sumbu x</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reflected_points_yx</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reflected_points_yx</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Refleksi Sumbu y terhadap Sumbu x&#39;</span><span class="p">)</span>
 
-    <span class="n">composed_transformations</span> <span class="o">=</span> <span class="n">compose_transformations</span><span class="p">([</span><span class="n">rotation_matrix</span><span class="p">,</span> <span class="n">scaling_matrix</span><span class="p">])</span>
+<span class="c1"># Plot titik-titik yang direfleksikan terhadap sumbu x ke sumbu y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reflected_points_xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reflected_points_xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Refleksi Sumbu x terhadap Sumbu y&#39;</span><span class="p">)</span>
 
-    <span class="n">transformed_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">composed_transformations</span><span class="p">,</span> <span class="n">points</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-    <span class="n">plot_points_and_lines</span><span class="p">(</span><span class="n">transformed_points</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Refleksi Sumbu&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bfce436cab87a2bb98ae2cb5f4d0b19d223f3688b360334ba8567b50c40bfd0a.png" src="_images/bfce436cab87a2bb98ae2cb5f4d0b19d223f3688b360334ba8567b50c40bfd0a.png" />
-<img alt="_images/514b100bf53ca0ab8e753de11a0bfd6cdd74b2004c4d0a41dc3cce112c14b700.png" src="_images/514b100bf53ca0ab8e753de11a0bfd6cdd74b2004c4d0a41dc3cce112c14b700.png" />
+<img alt="_images/5daf669a6c6dde0809364322369ccf092194b4fc2babfc1ddd612eb08c1ad616.png" src="_images/5daf669a6c6dde0809364322369ccf092194b4fc2babfc1ddd612eb08c1ad616.png" />
 </div>
 </div>
 
