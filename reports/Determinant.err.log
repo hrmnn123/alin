@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+A = np. array (([1,0],[0,1]))
+B = np.array (([1,0,0],[0,1,0],[0,0,1]))
+c = np.array (([1,2,1],[3,1,2],[2,1,2]))
+D = np.array (([3,1,2],[1,2,1],[2,1,2]))
+E = np.array (([1,2,1],[2,4,2],[2,1,2]))
+F = np.array (([1,2,1],[2,4,2],[2,4,3]))
+G = np.array (([6,2,4],[2,4,2],[4,2,3]))
+H = np.array (([6,8],[4,2]))
+I = np.array (([6,8],[2,1]))
+J = np.array (([6,4],[4,1]))
+K = np.array(
+    [1,2,3]
+    [0,1,0]
+    [0,2,0]
+)
+
+
+det_A=np.linalg.det(A)
+det_B=np.linalg.det(B)
+det_C=np.linalg.det(c)
+det_D=np.linalg.det(D)
+det_E=np.linalg.det(E)
+det_F=np.linalg.det(F)
+det_G=np.linalg.det(G)
+det_H=np.linalg.det(H)
+det_I=np.linalg.det(I)
+det_J=np.linalg.det(J)
+det_K =np.linalg.det(K)
+
+print(det_A)
+print(det_B)
+print(det_C)
+print(det_D)
+print(det_E)
+print(det_F)
+print(det_G)
+print(det_H)
+print(det_I)
+print(det_J)
+print(det_K)
+------------------
+
+----- stderr -----
+<>:13: SyntaxWarning: list indices must be integers or slices, not tuple; perhaps you missed a comma?
+<>:13: SyntaxWarning: list indices must be integers or slices, not tuple; perhaps you missed a comma?
+<ipython-input-1-fccdf72db89a>:13: SyntaxWarning: list indices must be integers or slices, not tuple; perhaps you missed a comma?
+  [1,2,3]
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-1-fccdf72db89a>[0m in [0;36m<cell line: 12>[0;34m()[0m
+[1;32m     11[0m [0mJ[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m [0;34m([0m[0;34m([0m[0;34m[[0m[0;36m6[0m[0;34m,[0m[0;36m4[0m[0;34m][0m[0;34m,[0m[0;34m[[0m[0;36m4[0m[0;34m,[0m[0;36m1[0m[0;34m][0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m K = np.array(
+[0;32m---> 13[0;31m     [0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m3[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m     [0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m1[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m     [0;34m[[0m[0;36m0[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: list indices must be integers or slices, not tuple
+
